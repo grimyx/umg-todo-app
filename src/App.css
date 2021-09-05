@@ -24,9 +24,9 @@ button:hover {
   width: 85%;
   margin: 4px auto;
   display: grid;
-  grid-template-areas: "done . name edit delete";
+  grid-template-areas: "done  task-container delete";
                         /*". . edit-field . .";*/
-  grid-template-columns: 50px 50px 1fr 50px 50px;
+  grid-template-columns: 50px 1fr 50px;
 }
 
 label {
@@ -84,7 +84,7 @@ label {
   width: 60%;
 }
 
-#taskName {
+.taskName {
   display: inline-block;
   margin: 0 auto;
   grid-area: name;
@@ -101,4 +101,17 @@ label {
 
 .editField {
   grid-area: edit-field;
+}
+
+.iconBtn {
+  grid-area: iconBtn;
+  justify-self: center;
+  align-self: center;
+}
+
+.taskContainer {
+  grid-area: task-container;
+  display: grid;
+  grid-template-areas: ". name iconBtn";
+  grid-template-columns: 50px 1fr 50px;
 }

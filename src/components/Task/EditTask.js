@@ -1,6 +1,8 @@
+import { faSave } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react"
 
-const EditTask = ({task, btnClickHandler}) => {
+const EditTask = ({ task, btnClickHandler }) => {
 
     const [editTitle, setEditTitle] = useState(task.taskTitle);
 
@@ -9,12 +11,17 @@ const EditTask = ({task, btnClickHandler}) => {
         setEditTitle(event.target.value);
     }
 
+    // will display save icon in place of edit icon
     return (
-        <div class="taskName">
-            <input className="taskInput" value={editTitle} onChange={editHandler} />
-            <button className="taskInput" onClick={() => btnClickHandler(editTitle)}>sava</button>
+        <div className="taskContainer">
+            <div className="taskName">
+                <input className="taskInput" value={editTitle} onChange={editHandler} />
+            </div>
+            <FontAwesomeIcon icon={faSave} className="iconBtn edit" onClick={()=> btnClickHandler(editTitle)}/>
         </div>
     )
 }
 
+// TO DO 
+// REFACTOR THIS ASAP !!!!!!!!
 export default EditTask;

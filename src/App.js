@@ -48,17 +48,6 @@ const App = () => {
     console.log(taskData);
   }
 
-  // change style of task field based on is task done or not 
-  /*
-  const setTaskStile = (task) => {
-    if (task.isDone) {
-      return "task doneTask";
-    } else {
-      return "task";
-    }
-  };
-  */
-
   // update task after edit
   const updateTask = (task, newTaskTitle) => {
     setTaskData(taskData.filter(t => {
@@ -119,12 +108,8 @@ const App = () => {
       </div>
 
       <div id="list">
-        { console.log(taskData) }
         {
         filterTasks(taskData, sortOption).map(task => {
-          // 1. kada je task dodat ima hoover efekat
-          // 2. kada se klikne na task, podesava se isDone , koji treba da ubacim, ide line-thru
-          //    i task vise nije aktivan
           return (
             <Task task={task} clickedHandler={removeTask} deleteBtnHandler={deleteBtnHandler} saveHandler={updateTask}/> 
           )
@@ -140,11 +125,5 @@ export default App;
 
 
 // TO DO 
-// dodaj dugme za brisanje
-// dodaj dugme za edit
-// nece da bude precrtan tekst za gotov task nego ce da bude stikliran 
-// smisli sta dalje
-// uredi stilove
-// filtriranje, tj prikazivanje posebno gotovih taskova, posebno taskova koji nisu gotovi
-// dodavanje datuma , do kada task treba da se zavrsi. po defaultu za danas
-// omoguci editovanje taska. da pri editovanju se task prosiri i onda da se prikazu inputi za polja i to 
+// Firebase backend
+// Responsive shit
