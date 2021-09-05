@@ -1,6 +1,8 @@
 .App {
   text-align: center;
   box-sizing: border-box;
+  height: 100vh;
+  background-image: linear-gradient(to bottom right,white,#b0e0e6, skyblue);
 }
 
 .taskInput {
@@ -8,7 +10,7 @@
   border-radius: 0px;
   font-size: 24px;
   padding: 10px 15px;
-  background-color: violet;
+  background-color: rgba(0,0,0,0.3);
 }
 
 button:hover {
@@ -19,13 +21,12 @@ button:hover {
   font-size: 24px;
   padding: 10px 15px;
   background-color: rosybrown;
-  width: 60%;
+  width: 85%;
   margin: 4px auto;
-  word-wrap: break-word;
-}
-
-.doneTask {
-  text-decoration: line-through;
+  display: grid;
+  grid-template-areas: "done . name edit delete";
+                        /*". . edit-field . .";*/
+  grid-template-columns: 50px 50px 1fr 50px 50px;
 }
 
 label {
@@ -33,8 +34,71 @@ label {
 }
 
 #sortLabels {
+  position: fixed;
+  left: 0;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 3rem;
+  height: 100vh;
+  width: 10vw;
+}
+
+#taskOptions {
+  display: flex;
+  justify-content: center;
+}
+
+.taskType {
+  width: 15rem;
+  margin: 1rem 3rem;
+}
+
+#list {
+  width: 80vw;
+  margin: 0 auto;
+}
+
+.edit, .delete, .done {
+  justify-self: center;
+  align-self: center;
+}
+
+
+.edit:hover {
+  color: green;
+}
+
+.delete:hover {
+  color: red;
+}
+
+.delete {
+  grid-area: delete;
+}
+
+.edit {
+  grid-area: edit;
+}
+#newTask > input {
+  width: 60%;
+}
+
+#taskName {
+  display: inline-block;
+  margin: 0 auto;
+  grid-area: name;
+  word-wrap: break-word;
+}
+
+.done {
+  grid-area: done;
+}
+
+.empty {
+  grid-area: empty;
+}
+
+.editField {
+  grid-area: edit-field;
 }
